@@ -39,3 +39,5 @@ Full_data$Activity <- Activity_lookup[Full_data$Activity]
 #Make the consolidated table of averages by subject and activity
 Full_data_table <- as.data.table(Full_data)
 Consolidated_stats <- Full_data_table %>% group_by(Subject,Activity) %>% summarize_all(funs(mean(.)))
+
+write.csv(Consolidated_stats, "./UCI HAR Dataset/Consolidated_stats.csv")
